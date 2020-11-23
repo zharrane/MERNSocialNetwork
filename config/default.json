@@ -1,0 +1,7 @@
+{
+  "mongoURI2": "mongodb://zaki:zharrane@cluster0-shard-00-00.sagty.mongodb.net:27017,cluster0-shard-00-01.sagty.mongodb.net:27017,cluster0-shard-00-02.sagty.mongodb.net:27017/SocialNetworkDb?ssl=true&replicaSet=atlas-ompoo8-shard-0&authSource=admin&retryWrites=true&w=majority",
+  "mongoURI": "mongodb://zaki:zharrane@cluster0-shard-00-00.sagty.mongodb.net:27017,cluster0-shard-00-01.sagty.mongodb.net:27017,cluster0-shard-00-02.sagty.mongodb.net:27017/SocialNetworkDb?ssl=true&replicaSet=atlas-ompoo8-shard-0&authSource=admin&retryWrites=true&w=majority",
+  "jwtSecret": "MyJwtSecret",
+  "githubApiClientId": "18884174e4f210202d06",
+  "githubSecret": "7fe16af4ff0426f96575b3ef42858525e4a2de11"
+}

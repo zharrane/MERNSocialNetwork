@@ -1,30 +1,30 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const connetToDatabase = require("./config/db");
 
-const users = require("./routes/api/users");
-const profiles = require("./routes/api/profiles");
-const posts = require("./routes/api/posts");
+//Routes
+const usersRoute = require("./routes/api/users");
+const profilesRoute = require("./routes/api/profiles");
+const postsRoute = require("./routes/api/posts");
+const authRoute = require("./routes/api/auth");
 
+//Starting App
 const app = express();
 
-// DB config
-const databaseConnectionUri = require("./config/keys").mongoURI;
+//body Parser Middleware
+app.use(express.json({ extended: false }));
+
 //Connect to mongoDb by mongoose
-mongoose
-  .connect(databaseConnectionUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDb is connected"))
-  .catch((err) => console.log("Failed to connect "));
-app.get("/", (req, res) => res.send("Hello !qwe"));
+connetToDatabase();
 
 //Using routes
 
-app.use("/api/users", users);
-app.use("/api/profiles", profiles);
-app.use("/api/posts", posts);
+app.use("/api/users", usersRoute);
+app.use("/api/profiles", profilesRoute);
+app.use("/api/posts", postsRoute);
+app.use("/api/auth", authRoute);
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server Running on port ${port}`));
+app.listen(PORT, () => console.log(`Server Running on port ${PORT}`));
